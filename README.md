@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tarzan - An NFT marketplace on the Aptos Blockchain
 
-## Getting Started
+    This is an nft marketplace for users to mint, list, bid and buy nfts on the aptos chain
 
-First, run the development server:
+## New Features Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The latest marketplace update introduces exciting features that improves statistics, filtering, and a bid purchase system. Here's a brief overview of each new feature, along with their associated components:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 1. Bid System
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Description:**  
+Users can now set if an asset is bid enabled or not when listing. If it is, buyers will have to place a bid and then the owner would accept the best bid to his taste before the asset can be purchased. After the bid has been accepted, the winner will have the won tag associated with the nft in his bids page and can now be allowed to purchase.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**components / pages:**
 
-## Learn More
+- `components/modals/AcceptBidsModal`: Used to accept a bid
+- `components/modals/BidModal`: Modal to place a bid
+- `app/bids/page`: Bids page to show all users bids
 
-To learn more about Next.js, take a look at the following resources:
+## 2. Statistics
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Description:**  
+Litle statistics like `total_sales`,`total_minted` and `total_listed` have been added to the smart contract `MarketPlace` struct. These values are increased or reduces as the user interacts with the smart contract. This is displayed on the top menu on the web page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**components / pages:**
 
-## Deploy on Vercel
+- `components/TopMenu`: Top section to show stats.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 3. Favourites
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Description:**  
+Users can now click on the star icon to add certain nfts to their favourites page. This help for easy access to certain nfts that the user likes and may not want to purchase at the moment.
+
+**components / pages:**
+
+- `app/favourites/page`: Page to show favourites.
+
+## 4. Filter
+
+**Description:**  
+For easy access and sorting of nfts, a filter has been added where by the user can filter by ascending or decending prices, and also by the rarity.
+
+**components / pages:**
+
+- `components/TopMenu`: Top section also containg the filter section.
+
+## Setup and Run
+
+### Frontend (Next.js)
+
+1. `npm install`: - add the `--legacy-peer-deps` to resolve conflicts.
+2. `npm run dev`
+
+## Approach / Architecture
+
+- Implemented the frontend with Next.js and React.
+- Used aptos move for the backend/ smart contract `contracts/sources/NFTMarketplace.move`
+- Used redux for a centralized store hosting contract view functions for easy access.
+
+## Libraries
+
+- Next.js
+- Redux

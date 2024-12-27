@@ -1,0 +1,15 @@
+[package]
+name = "Tarzan"
+version = "1.0.0"
+
+[addresses]
+marketplace = "0x5bed71a748e5901515c7ad5e8459ad1c8f9959aa23060bac0de4dddc098598ec"
+aptos_framework = "0x1"
+aptos_stdlib = "0x2"
+primitives = "0xCAFE"
+
+[dev-addresses]
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-framework.git", subdir = "aptos-framework", rev = "mainnet" }
+AptosStdlib = { git = "https://github.com/aptos-labs/aptos-framework.git", subdir = "aptos-stdlib", rev = "mainnet" }
